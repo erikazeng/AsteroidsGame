@@ -16,10 +16,10 @@ public void keyPressed() {
     bob.accelerate(5);
   }
   if (key == 'd'){
-    bob.turn(90);
+    bob.turn(180);
   }
   if (key == 'a'){
-    bob.turn(90);
+    bob.turn(180);
   }
 }
 public void draw()
