@@ -8,7 +8,7 @@ public void setup()
   for (int i = 0; i< nightSky.length; i++) {
     nightSky[i] = new Star();
   }
-   for (int i = 0; i < 100; i++) {
+   for (int i = 0; i < 10; i++) {
     a.add(new Asteroid());
   }
 }
