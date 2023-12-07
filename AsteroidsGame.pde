@@ -30,7 +30,7 @@ public void draw()
 }
 public void keyPressed() {
   if (key == 'q') {
-    bob.Hyperspace();
+    bob.hyperspace();
   }
   if (key == 'w') {
     bob.accelerate(5);
