@@ -1,8 +1,8 @@
 //your variable declarations here
 Star[] nightSky = new Star[200];
 Spaceship bob = new Spaceship();
-ArrayList<Asteroid> a = new ArrayList<>();
-ArrayList<Bullet> b = new ArrayList<>();
+ArrayList <Asteroid> a = new ArrayList <Asteroid>();
+ArrayList <Bullet> b = new ArrayList <Bullet>();
 public void setup()
 {
   size(500, 500);
