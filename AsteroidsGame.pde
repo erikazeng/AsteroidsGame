@@ -9,11 +9,8 @@ public void setup()
   for (int i = 0; i< nightSky.length; i++) {
     nightSky[i] = new Star();
   }
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 10; i++) {
     a.add(new Asteroid());
-  }
-  for (int i = 0; i < 100; i++) {
-    b.add(new Bullet(bob));
   }
 }
 public void draw()
@@ -24,23 +21,30 @@ public void draw()
   }
   bob.show();
   bob.move();
-  for (int i = 0; i < a.size(); i++) {
-    (a.get(i)).move();
-    (a.get(i)).show();
-    if (dist((float)bob.getX(), (float)bob.getY(), (float)(a.get(i)).myCenterX, (float)(a.get(i)).myCenterY) <= 20) {
+  for (int i = 0; i<a.size(); i++) {
+    a.get(i).show();
+    a.get(i).move();
+    float collision = dist((float)bob.getX(), (float)bob.getY(), (float)a.get(i).getX(), (float)a.get(i).getY());
+    if (collision < 10) {
       a.remove(i);
     }
+  }
 
-    for (int k = 0; k < b.size(); k++) {
-      (b.get(i)).move();
-      (b.get(i)).show();
-      if (dist((float)bob.getX(), (float)bob.getY(), (float)(a.get(k)).myCenterX, (float)(a.get(k)).myCenterY) <= 20) {
-      b.remove(i);
-    }
+  for (int i = 0; i < b.size(); i++) {
+    b.get(i).show();
+    b.get(i).move();
+    b.get(i).accelerate(1);
+    for (int u = 0; u < a.size(); u++) {
+      float collision = dist((float)b.get(i).getX(), (float)b.get(i).getY(), (float)a.get(u).getX(), (float)a.get(u).getY());
+      if (collision < 10) {
+        b.remove(i);
+        a.remove(u);
+        break;
+      }
     }
   }
 }
-  public void keyPressed() {
+public void keyPressed() {
     if (key == 'q') {
       bob.hyperspace();
     }
@@ -52,5 +56,8 @@ public void draw()
     }
     if (key == 'a') {
       bob.turn(180);
+    }
+    if (key == ' ') {
+      b.add(new Bullet(bob));
     }
   }
