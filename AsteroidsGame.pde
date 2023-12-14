@@ -33,7 +33,6 @@ public void draw()
   for (int i = 0; i < b.size(); i++) {
     b.get(i).show();
     b.get(i).move();
-    b.get(i).accelerate(1);
     for (int u = 0; u < a.size(); u++) {
       float collision = dist((float)b.get(i).getX(), (float)b.get(i).getY(), (float)a.get(u).getX(), (float)a.get(u).getY());
       if (collision < 10) {
