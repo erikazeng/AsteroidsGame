@@ -3,7 +3,7 @@ class Bullet extends Floater {
     myCenterX = bob.getX();
     myCenterY = bob.getY();
     myPointDirection = bob.getPointDirection();
-    accelerate(0.6);
+    accelerate(6);
   }
   public double getX() {
     return myCenterX;
